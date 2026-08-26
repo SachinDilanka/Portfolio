@@ -1,4 +1,4 @@
-import { Github, Mail, Activity, Server, Database, Terminal, Code2, Wrench, Globe } from 'lucide-react';
+import { Github, Mail, Activity, Server, Database, Terminal, Code2, Wrench, Globe, ExternalLink } from 'lucide-react';
 
 export default function App() {
   const projects = [
@@ -49,114 +49,166 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased">
-      {/* Navigation */}
-      <nav className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50 px-6 py-4">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <span className="text-xl font-bold tracking-tight text-emerald-400">&lt;DevPortfolio /&gt;</span>
+    <div className="w-full min-h-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-emerald-500 selection:text-slate-950">
+      
+      {/* Navigation - Edge to Edge Background */}
+      <nav className="w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <span className="text-xl font-bold tracking-tight text-emerald-400 hover:opacity-80 transition cursor-pointer">
+            &lt;DevPortfolio /&gt;
+          </span>
           <div className="flex gap-6 text-sm font-medium text-slate-400">
-            <a href="#projects" className="hover:text-emerald-400 transition">Projects</a>
-            <a href="#skills" className="hover:text-emerald-400 transition">Skills</a>
-            <a href="#contact" className="hover:text-emerald-400 transition">Contact</a>
+            <a href="#projects" className="hover:text-emerald-400 transition-colors duration-200">Projects</a>
+            <a href="#skills" className="hover:text-emerald-400 transition-colors duration-200">Skills</a>
+            <a href="#contact" className="hover:text-emerald-400 transition-colors duration-200">Contact</a>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <header className="max-w-4xl mx-auto px-6 pt-24 pb-16 text-center">
-        <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
-          Full-Stack Software Engineer
-        </span>
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight mt-6 mb-4">
-          Building resilient web apps & <span className="text-emerald-400">real-time systems.</span>
-        </h1>
-        <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-          Specializing in React frontends, Node.js microservices, real-time data streaming, and robust database architectures.
-        </p>
-        <div className="flex justify-center gap-4">
-          <a href="#projects" className="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-6 py-3 rounded-lg transition">
-            View Projects
-          </a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="border border-slate-700 hover:bg-slate-900 px-6 py-3 rounded-lg flex items-center gap-2 transition">
-            <Github className="w-4 h-4" /> GitHub
-          </a>
+      {/* Hero Section - Edge to Edge Background with Centered Content */}
+      <header className="w-full py-28 px-6 relative border-b border-slate-900 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950">
+        <div className="max-w-4xl mx-auto text-center animate-fade-in">
+          <span className="inline-block bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest shadow-sm hover:border-emerald-500/40 transition-all">
+            Full-Stack Software Engineer
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight mt-6 mb-6 leading-tight">
+            Building resilient web apps & <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">real-time systems.</span>
+          </h1>
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+            Specializing in React frontends, Node.js microservices, real-time data streaming, and robust database architectures.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a 
+              href="#projects" 
+              className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200"
+            >
+              View Projects
+            </a>
+            <a 
+              href="https://github.com/SachinDilanka" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="border border-slate-800 hover:bg-slate-900/80 bg-slate-900/40 px-7 py-3.5 rounded-xl flex items-center gap-2 hover:-translate-y-0.5 transition-all duration-200 text-slate-300"
+            >
+              <Github className="w-5 h-5 text-slate-300" /> GitHub Profile
+            </a>
+          </div>
         </div>
       </header>
 
-      {/* Featured Projects Grid */}
-      <section id="projects" className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
-          <Terminal className="text-emerald-400" /> Featured Projects
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {projects.map((proj, idx) => (
-            <div key={idx} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 flex flex-col justify-between hover:border-slate-700 transition">
-              <div>
-                <div className="mb-4">{proj.icon}</div>
-                <h3 className="text-xl font-semibold mb-1">{proj.title}</h3>
-                <p className="text-xs text-emerald-400 font-medium mb-3">{proj.role}</p>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">{proj.description}</p>
+      {/* Featured Projects Grid - Full Width Section */}
+      <section id="projects" className="w-full py-24 px-6 bg-slate-950">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-3 mb-12">
+            <div className="p-2 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
+              <Terminal className="text-emerald-400 w-6 h-6" />
+            </div>
+            <h2 className="text-3xl font-bold text-white tracking-tight">Featured Projects</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((proj, idx) => (
+              <div 
+                key={idx} 
+                className="group bg-slate-900/40 border border-slate-800/80 hover:border-slate-700/80 rounded-2xl p-7 flex flex-col justify-between hover:bg-slate-900/70 hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-black/40"
+              >
+                <div>
+                  <div className="p-3 bg-slate-950 rounded-xl border border-slate-800/80 w-fit mb-6 group-hover:scale-105 transition-transform duration-200">
+                    {proj.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-emerald-400 transition-colors duration-200">
+                    {proj.title}
+                  </h3>
+                  <p className="text-xs text-emerald-400 font-semibold mb-4 tracking-wide uppercase">{proj.role}</p>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-6 font-normal">{proj.description}</p>
+                </div>
+                <div>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {proj.tech.map((t, i) => (
+                      <span key={i} className="text-[11px] font-medium bg-slate-950/80 border border-slate-800 text-slate-300 px-2.5 py-1 rounded-md">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-4 border-t border-slate-800/60 pt-4 text-xs font-semibold">
+                    <a 
+                      href="https://github.com/SachinDilanka" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="flex items-center gap-1.5 text-slate-300 hover:text-emerald-400 transition-colors"
+                    >
+                      <Github className="w-4 h-4" /> Source Code <ExternalLink className="w-3 h-3 opacity-60" />
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {proj.tech.map((t, i) => (
-                    <span key={i} className="text-[11px] bg-slate-800 text-slate-300 px-2 py-1 rounded">
-                      {t}
-                    </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Skills Section - Edge to Edge */}
+      <section id="skills" className="w-full py-24 px-6 border-t border-slate-900 bg-slate-900/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-3 mb-12">
+            <div className="p-2 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
+              <Code2 className="text-emerald-400 w-6 h-6" />
+            </div>
+            <h2 className="text-3xl font-bold text-white tracking-tight">Technical Skills</h2>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {skillCategories.map((cat, idx) => (
+              <div 
+                key={idx} 
+                className="bg-slate-950/60 border border-slate-800/80 hover:border-slate-700/80 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg"
+              >
+                <div className="flex items-center gap-3 mb-5 border-b border-slate-800/60 pb-4">
+                  <div className="p-2 bg-slate-900 rounded-lg border border-slate-800">
+                    {cat.icon}
+                  </div>
+                  <h3 className="font-semibold text-slate-100 text-sm">{cat.title}</h3>
+                </div>
+                <ul className="space-y-2.5">
+                  {cat.skills.map((skill, sIdx) => (
+                    <li key={sIdx} className="text-xs text-slate-400 flex items-center gap-2.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                      {skill}
+                    </li>
                   ))}
-                </div>
-                <div className="flex gap-4 border-t border-slate-800/80 pt-4 text-xs font-medium">
-                  <a href="#" className="flex items-center gap-1 text-slate-300 hover:text-emerald-400">
-                    <Github className="w-3.5 h-3.5" /> Source Code
-                  </a>
-                </div>
+                </ul>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Technical Skills Section */}
-      <section id="skills" className="max-w-6xl mx-auto px-6 py-16 border-t border-slate-800/60">
-        <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
-          <Code2 className="text-emerald-400" /> Technical Skills
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((cat, idx) => (
-            <div key={idx} className="bg-slate-900/40 border border-slate-800 rounded-xl p-5">
-              <div className="flex items-center gap-2 mb-4">
-                {cat.icon}
-                <h3 className="font-semibold text-slate-200 text-sm">{cat.title}</h3>
-              </div>
-              <ul className="space-y-2">
-                {cat.skills.map((skill, sIdx) => (
-                  <li key={sIdx} className="text-xs text-slate-400 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/70"></span>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Contact & Footer */}
-      <footer id="contact" className="border-t border-slate-800 mt-12 py-16 text-center">
-        <div className="max-w-xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-3">Let's Connect</h2>
-          <p className="text-slate-400 text-sm mb-6">
+      {/* Contact & Footer - Full Width */}
+      <footer id="contact" className="w-full border-t border-slate-900 bg-slate-950 py-20 text-center px-6">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4 text-white">Let's Connect</h2>
+          <p className="text-slate-400 text-sm mb-8 leading-relaxed">
             Open to software engineering roles, full-stack projects, and technical collaborations.
           </p>
-          <div className="flex justify-center gap-4">
-            <a href="mailto:your.email@example.com" className="bg-slate-800 hover:bg-slate-700 border border-slate-700 px-4 py-2 rounded-lg text-sm flex items-center gap-2 transition">
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <a 
+              href="mailto:sachin.dilanka@example.com" 
+              className="bg-slate-900 hover:bg-slate-800 border border-slate-800 px-6 py-3 rounded-xl text-sm font-medium flex items-center gap-2 hover:-translate-y-0.5 transition-all text-slate-200"
+            >
               <Mail className="w-4 h-4 text-emerald-400" /> Email Me
             </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="bg-slate-800 hover:bg-slate-700 border border-slate-700 px-4 py-2 rounded-lg text-sm flex items-center gap-2 transition">
+            <a 
+              href="https://github.com/SachinDilanka" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="bg-slate-900 hover:bg-slate-800 border border-slate-800 px-6 py-3 rounded-xl text-sm font-medium flex items-center gap-2 hover:-translate-y-0.5 transition-all text-slate-200"
+            >
               <Github className="w-4 h-4 text-emerald-400" /> GitHub
             </a>
           </div>
-          <p className="text-slate-600 text-xs mt-12">Designed & Built with React, Vite & Tailwind CSS</p>
+          <p className="text-slate-600 text-xs tracking-wide">
+            Designed & Built with React, Vite & Tailwind CSS
+          </p>
         </div>
       </footer>
     </div>
